@@ -1,0 +1,11 @@
+Country,City,AQI_Value,AQI_Category,CO AQI Value,CO AQI Category,Ozone AQI Value,Ozone AQI Category,NO2 AQI Value,NO2 AQI Category,PM2.5 AQI Value,PM2.5 AQI Category,lat,lng
+France,Raismes,59,Moderate,1,Good,30,Good,4,Good,59,Moderate,50.3892,3.4858
+France,Pontarlier,56,Moderate,1,Good,35,Good,0,Good,56,Moderate,46.9061,6.3547
+France,Haubourdin,48,Good,1,Good,28,Good,4,Good,48,Good,50.6092,2.9869
+France,Beaune,39,Good,1,Good,26,Good,1,Good,39,Good,47.025,4.8397
+France,Paita,27,Good,0,Good,27,Good,0,Good,10,Good,-5.0911,-81.1064
+France,Riom,40,Good,1,Good,30,Good,1,Good,40,Good,45.8936,3.1125
+France,Rodez,42,Good,1,Good,31,Good,1,Good,42,Good,44.3506,2.575
+France,Guipavas,34,Good,1,Good,26,Good,9,Good,34,Good,48.4336,-4.4008
+France,Fosses,29,Good,0,Good,28,Good,2,Good,29,Good,49.0981,2.5067
+France,Libourne,46,Good,1,Good,26,Good,2,Good,46,Good,44.92,-0.24

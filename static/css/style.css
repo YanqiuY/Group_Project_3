@@ -1,0 +1,51 @@
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map,
+body,
+html {
+  height: 100%;
+}
+
+.blur-effect {
+  filter: blur(5px); 
+}
+
+.color-bar-container {
+  position: fixed;
+  top: 80px;
+  left: 10px;
+  height: 40vh;
+  width: 40px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.color-bar {
+  flex: 1;
+  width: 100%;
+  background: linear-gradient(to top, #9ee8ff, #70dce1, #59ceb5, #63bc80, #7aa648, #938d0e, #ab6c00, #bd4000, #c71600);
+  border-radius: 5px;
+}
+
+.color-scale {
+  position: fixed;
+  top: 80px;
+  left: 10px;
+  height: 40vh;
+  width: 40px;
+  color: #000000;
+  font-size: 22px;
+}
+
+.scale-label {
+  display: flex;
+  justify-content: center;
+}
+

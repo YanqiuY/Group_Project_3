@@ -11,7 +11,7 @@
 
 ### **Project Title:** World Air Quality Visualization
 
-![Alt text](images for Readme/Frontpage.png)
+![Alt text](images_for_Readme/Frontpage.png)
 
 ### Project Description:
 
@@ -20,7 +20,9 @@
 An interactive global map showing the World Air Quality Index via Kaggle.com, a merge of two seperate datasets, one with over 14,000 cities and their corresponding coordinates, the other with date on air pollution levels in countries worldwide.
 
 * `A heat map` to show the air quality index based on the standard AQI Color Scale (We changed the color scale to make it look better), with a dropdown menu to choose different country. When you choose the specific country, you can also see the detailed AQI info in that country.
-  ![Alt text](images for Readme/AirQualityIndex.png)
+
+![Alt text](images_for_Readme/AirQualityIndex.png)
+
 * `A choropleth map` that user can click on the country to see the detailed info of each country's AQI information.
 
 ##### 2.What technology we used:
@@ -29,11 +31,11 @@ using the flask app to connect data and
 
 ### Project Progress:
 
-![Alt text](images for Readme/workflow.png)
-
 1.The *propoal* and *sketch* of the final design: [click here to view](https://docs.google.com/document/d/1Uli1vOUb7PEUKXBcVxqaCytV_qjJDPO5XU5dzwbJ1nw/edit)
 
 2.Our Powerpoint of the Final Presentation: [click here to view](https://docs.google.com/presentation/d/1kvcP9HexeMtknjB-pfObAaPZ7VYi2Y6oQ0_z3h6_T6s/edit#slide=id.g157f507e881_0_22)
+
+![Alt text](images_for_Readme/workflow.png)
 
 ### Some of the features we hope to implement in the future:
 

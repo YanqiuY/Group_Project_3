@@ -1,4 +1,3 @@
-# Import the dependencies
 import numpy as np
 import pandas as pd
 import datetime as dt
@@ -9,39 +8,30 @@ from sqlalchemy import create_engine, func
 from geoalchemy2 import Geometry
 from geojson import Feature, FeatureCollection, Point
 from flask_sqlalchemy import SQLAlchemy
-from flask import render_template
+from flask import render_template, jsonify
 
-from flask import Flask, jsonify
+from flask import Flask
 
-# Database Setup
 engine = create_engine("sqlite:///AQI.sqlite.db")
-
 Base = automap_base()
 
-# Reflect the database tables
 Base.prepare(engine, reflect=True)
 
-# Save references to each table
 AQI = Base.classes.AQI
 MedianAQI = Base.classes.MedianAQI
 location = Base.classes.location
-# Create our session (link) from Python to the DB
+
 session = Session(engine)
-
-# Flask Setup
 app = Flask(__name__)
-
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///AQI.sqlite.db"
 db = SQLAlchemy(app)
 
-# Flask Routes
-# create route that renders index.html template
 @app.route("/")
-def home():
-    return render_template("index.html")
+def index():
+    return render_template("dashboard.html")
 
-@app.route("/api/dashboard")
-def dashboard():
+@app.route("/api/raw_aqi")
+def rawAQI():
     results = session.query(AQI).all()
     data = []
     for result in results:
@@ -57,6 +47,9 @@ def dashboard():
             'ozone_aqi_category': result.OzoneAQICategory,
             'no2_aqi': result.NO2AQIValue,
             'no2_aqi_category': result.NO2AQICategory,
+            'lat': result.lat,
+            'lng': result.lng,
+            'pm_aqi': result.PMAQIValue
         }
         data.append(row)
 
@@ -64,15 +57,26 @@ def dashboard():
 
     return json_data
 
-@app.route("/api/chloropleth")
-def chloropleth():
+@app.route("/api/median")
+def median():
     results = session.query(MedianAQI).all()
     data = []
     for result in results:
         row = {
             'id': result.id,
             'country': result.Country,
-            'med_aqi': result.MedianAQIValue,
+            'med_aqi': result.AQIValue,
+            'med_co': result.COAQIValue,
+            'med_ozone': result.OzoneAQIValue,
+            'med_no2': result.NO2AQIValue,
+            'good': result.Good,
+            'mod': result.Moderate,
+            'unhealthy': result.Unhealthy,
+            'unhealthy_sens': result.Unhealthy_for_Sensitive_Groups,
+            'very_unhealthy': result.Very_Unhealthy,
+            'hazard': result.Hazardous,
+            'lat': result.lat,
+            'long': result.long
         }
         data.append(row)
     json_data = jsonify(data)
@@ -83,17 +87,23 @@ def chloropleth():
 @app.route('/api/locations')
 def get_locations():
 
-    #Query the database
     results = session.query(location).all()
     features = []
     for result in results:
-        point = Point((result.latitude, result.longitude))
+        point = Point((result.longitude, result.latitude))
         properties = {'name': result.Country, 'AQI': result.AQIValue}
         features.append(Feature(geometry=point, properties=properties))
     feature_collection = FeatureCollection(features)
 
-    # Return GeoJSON response
     return jsonify(feature_collection)
+
+@app.route("/map")
+def map():
+    return render_template("map.html")
+
+@app.route("/chloro")
+def chloro():
+    return render_template("index_chloropleth.html")
 
 if __name__ == '__main__':
     app.run(debug=True)

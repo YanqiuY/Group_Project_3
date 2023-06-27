@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Air Quality Index</title>
+
+  <!-- Leaflet JavaScript code -->
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q==" crossorigin=""></script>
+
+
+  <!-- D3 library -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+
+  <!-- Our CSS  -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://cdn.plot.ly/plotly-latest.min.css">
+
+  <title>Popup Window with Bar Chart</title>
+  <div class="popup"></div>
+  <div class="dropdown"></div>
+</head>
+
+<body>
+  <div class="color-bar-container">
+    <div class="color-bar"></div>
+    <div class="color-scale">
+      <div class="scale-label">500</div>
+      <div class="scale-label">450</div>
+      <div class="scale-label">400</div>
+      <div class="scale-label">350</div>
+      <div class="scale-label">300</div>
+      <div class="scale-label">250</div>
+      <div class="scale-label">200</div>
+      <div class="scale-label">150</div>
+      <div class="scale-label">100</div>
+      <div class="scale-label">50</div>
+      <div class="scale-label">0</div>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <!-- JavaScript file -->
+  <script src="{{ url_for('static', filename='js/AQI.js') }}"></script>
+
+  <div id="popup">
+    <div id="chart_wrapper">
+      <div id="gas_chart"></div>
+      <div id="hazard_chart"></div>
+      <div id="hazard_scatter"></div>
+    </div>
+  </div>
+
+  <div id="dropdown">
+    <select id="countryDropdown"></select>
+  </div>
+  
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
+  <div class="chart_wrapper"></div>
+  <div class="gas_chart"></div>
+  <div class="hazard_chart"></div>
+  <div class="hazard_scatter"></div>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</body>
+
+</html>

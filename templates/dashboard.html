@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Air Quality Index</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">Global Air Quality Index</a>
+    <div class="dropdown datasets-dropdown">
+      <button class="btn btn-warning dropdown-toggle" type="button" id="datasetsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Datasets
+      </button>
+      <div class="dropdown-menu" aria-labelledby="datasetsDropdown">
+        <a class="dropdown-item" href="https://www.kaggle.com/datasets/adityaramachandran27/world-air-quality-index-by-city-and-coordinates">Kaggle Source Data</a>
+        <a class="dropdown-item" href="/api/raw_aqi">Raw AQI JSON Data</a>
+        <a class="dropdown-item" href="/api/median">Median AQI JSON Data</a>
+        <a class="dropdown-item" href="/api/locations">Heatmap GeoJSON Data</a>
+      </div>
+    </div>
+    <div class="dropdown github-dropdown">
+      <button class="btn btn-warning dropdown-toggle" type="button" id="githubDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        GitHub
+      </button>
+      <div class="dropdown-menu" aria-labelledby="githubDropdown">
+        <a class="dropdown-item" href="https://github.com/YanqiuY/Group_Project_3">Project Repository</a>
+      </div>
+    </div>
+    <div class="dropdown cont-dropdown">
+      <button class="btn btn-warning dropdown-toggle" type="button" id="contDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Contributors
+      </button>
+      <div class="dropdown-menu" aria-labelledby="contDropdown">
+        <a class="dropdown-item" href="https://github.com/chasers17">Chase Reynolds</a>
+        <a class="dropdown-item" href="https://github.com/irenamehic">Irena Mehic</a>
+        <a class="dropdown-item" href="https://github.com/jaezak">Jae Zakarauskas</a>
+        <a class="dropdown-item" href="https://github.com/JoannaG817">Joanna Gromek</a>
+        <a class="dropdown-item" href="https://github.com/RabNing">Ning Gao</a>
+        <a class="dropdown-item" href="https://github.com/YanqiuY">Yanqiu Yang</a>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="map-container">
+          <a href="/map">
+            <img class="map-image" src="/static/images/aqi_map.jpg" alt="AQI Map">
+            <div class="map-overlay">
+              View Interactive AQI Heat Map
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="map-container">
+          <a href="/chloro">
+            <img class="map-image" src="/static/images/chloro.jpg" alt="AQI Map">
+            <div class="map-overlay">
+              View Interactive AQI Chloropleth Map
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="message-boxes">
+      <div class="message-box">
+        <h3>About the Dataset</h3>
+        <p>We found a dataset of the World Air Quality Index via Kaggle.com. It is a merge of two separate datasets, one with over 14,000 cities and their corresponding coordinates, the other with data on air pollution levels in countries worldwide. Columns in the dataset include country, city, AQI value and corresponding category (0-50 being good, going up to 300 being hazardous), ozone (smog) and carbon monoxide AQI values and corresponding category.</p>
+      </div>
+      <div class="message-box">
+        <h3>Air Quality Index (AQI) Calculation</h3>
+        <p>The Air Quality Index is based on measurement of particulate matter (PM<sub>2.5</sub> and PM<sub>10</sub>), Ozone (O<sub>3</sub>), Nitrogen Dioxide (NO<sub>2</sub>), Sulfur Dioxide (SO<sub>2</sub>) and Carbon Monoxide (CO) emissions. Most of the stations on the map are monitoring both PM<sub>2.5</sub> and PM<sub>10</sub> data, but there are few exceptions where only PM<sub>10</sub> is available.</p>
+        <p>All measurements are based on hourly readings: For instance, an AQI reported at 8AM means that the measurement was done from 7AM to 8AM.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="particles-js"></div>
+ 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+
+  <script src="/static/js/particles.min.js"></script>
+  <script src="/static/js/butterfly.js"></script>
+  
+</body>
+</html>

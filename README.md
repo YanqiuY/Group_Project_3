@@ -25,10 +25,6 @@ An interactive global map showing the World Air Quality Index via Kaggle.com, a 
 
 * `A choropleth map` that user can click on the country to see the detailed info of each country's AQI information.
 
-##### 2.What technology we used:
-
-using the flask app to connect data and
-
 ### Project Progress:
 
 1.The *propoal* and *sketch* of the final design: [click here to view](https://docs.google.com/document/d/1Uli1vOUb7PEUKXBcVxqaCytV_qjJDPO5XU5dzwbJ1nw/edit)
